@@ -1,0 +1,19 @@
+# --- .NET ---
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+[Tt]est[Rr]esults/
+
+# --- Godot ---
+# Cache do editor e artefatos importados: regenerados, nunca versionados.
+.godot/
+*.translation
+
+# Segredos de exportação (keystore, senhas) não entram no repositório.
+export_presets.cfg
+
+# --- Sistema ---
+.DS_Store
