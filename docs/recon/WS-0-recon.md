@@ -162,6 +162,10 @@ limite é o contrato.
 Cada passo é um commit. Nenhum passo depende de um posterior. Código em inglês,
 documentação e comentários em PT-BR.
 
+> **Status (2026-09-11, pós-aprovação):** passos 1, 2, 3 e 5 **executados e verificados**
+> (`dotnet test` → 18/18 verde, sem Godot instalado). Passos 4, 6 e 7 seguem bloqueados
+> pela ausência do vault — ver §2.1.
+
 **Passo 1 — Esqueleto da solução e higiene do repositório**
 - `.gitignore` para Godot + .NET; `.sln`; estrutura `src/Lgp.Core/`, `tests/Lgp.Core.Tests/`,
   `game/` (projeto Godot, vazio por ora).
