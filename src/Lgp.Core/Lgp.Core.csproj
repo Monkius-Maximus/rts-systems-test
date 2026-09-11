@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Núcleo de simulação do LGP.
+
+    INVARIANTE DE ARQUITETURA: este projeto NÃO referencia o Godot.
+    Nem `GodotSharp`, nem o `Godot.NET.Sdk`. É isso que mantém a simulação
+    testável em `dotnet test` sem engine, editor ou binário do Godot em CI,
+    e é isso que o teste de guarda `ArchitectureTests` protege.
+    Ver docs/recon/WS-0-recon.md §2.2 e docs/pesquisa/P1-P4-verificacao-tecnica.md §2.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+</Project>

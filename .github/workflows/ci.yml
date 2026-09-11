@@ -1,0 +1,24 @@
+# CI do núcleo de simulação.
+#
+# Repare no que NÃO está aqui: nenhum download do Godot, nenhum editor, nenhum
+# `--headless`. Isso é consequência direta da invariante de arquitetura do WS-0 — o
+# núcleo não referencia a engine, então testá-lo é só `dotnet test`. Se um dia este
+# arquivo precisar instalar o Godot para a suíte rodar, a invariante foi quebrada.
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - run: dotnet test --configuration Release
