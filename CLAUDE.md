@@ -51,14 +51,24 @@ rodarem a mesma engine sem cheating (WS-7). Quatro regras no núcleo:
 ## Comandos
 
 ```bash
-dotnet test     # suíte completa, sem Godot instalado
-dotnet build
+dotnet test                       # suíte do núcleo, sem Godot instalado
+dotnet build game/Lgp.Game.csproj # camada de apresentação
+godot --headless --path game      # smoke da fronteira: sai 0 se sã, 1 se divergiu
 ```
+
+`Lgp.sln` contém apenas o núcleo e os testes. `game/` fica **deliberadamente fora** dele,
+para que `dotnet test` nunca precise sequer restaurar o SDK do Godot. Não "conserte" isso
+adicionando o projeto do jogo à solução. Pelo mesmo motivo o CI roda só `dotnet test`: se
+um dia ele precisar baixar a engine, a invariante foi quebrada.
+
+O Godot builda o projeto sozinho (`godot --headless --path game --build-solutions --quit`)
+e copia `Lgp.Core.dll` junto — não é preciso gerar `.sln` para a pasta `game/`.
 
 ## Onde está o quê
 
 - `src/Lgp.Core/` — simulação, C# puro.
 - `tests/Lgp.Core.Tests/` — suíte headless.
+- `game/` — projeto Godot (apresentação). Único lugar onde a engine existe.
 - `docs/recon/` — relatórios de reconhecimento por frente (auditoria antes de codar).
 - `docs/pesquisa/` — verificações de API/lib contra a documentação oficial.
 

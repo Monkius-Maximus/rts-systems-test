@@ -162,9 +162,15 @@ limite é o contrato.
 Cada passo é um commit. Nenhum passo depende de um posterior. Código em inglês,
 documentação e comentários em PT-BR.
 
-> **Status (2026-09-11, pós-aprovação):** passos 1, 2, 3 e 5 **executados e verificados**
-> (`dotnet test` → 18/18 verde, sem Godot instalado). Passos 4, 6 e 7 seguem bloqueados
-> pela ausência do vault — ver §2.1.
+> **Status (2026-09-19):** passos 1, 2, 3, 5 e 7 **executados e verificados**
+> (`dotnet test` → 18/18 verde sem Godot instalado; smoke da fronteira verde dentro do
+> Godot 4.7.2 headless). Passos 4 e 6 seguem bloqueados pela ausência do vault — ver §2.1.
+>
+> Desvio registrado no passo 7: o plano previa que o smoke lesse o pool de recursos, que
+> não existe por falta do doc 10. Ele lê o `DeterministicRandom`, conferindo a sequência
+> canônica do PCG32 dentro da engine. Prova a mesma coisa — que o `ProjectReference` para
+> uma biblioteca sem o SDK do Godot carrega e roda em runtime, e que a engine não altera
+> o comportamento da simulação.
 
 **Passo 1 — Esqueleto da solução e higiene do repositório**
 - `.gitignore` para Godot + .NET; `.sln`; estrutura `src/Lgp.Core/`, `tests/Lgp.Core.Tests/`,

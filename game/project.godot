@@ -1,0 +1,14 @@
+; Projeto Godot do LGP — camada de apresentação.
+; Ver CLAUDE.md: esta camada pode referenciar o núcleo; o núcleo nunca referencia esta.
+
+config_version=5
+
+[application]
+
+config/name="LGP"
+run/main_scene="res://BoundarySmoke.tscn"
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
+
+[dotnet]
+
+project/assembly_name="Lgp.Game"

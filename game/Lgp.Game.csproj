@@ -1,0 +1,17 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+
+  <!--
+    Camada de apresentação. É AQUI que o Godot entra, e só aqui.
+    A seta aponta num sentido só: o jogo referencia o núcleo; o núcleo não sabe
+    que este projeto existe. Ver CLAUDE.md, "Invariante de arquitetura".
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Lgp.Core\Lgp.Core.csproj" />
+  </ItemGroup>
+
+</Project>
