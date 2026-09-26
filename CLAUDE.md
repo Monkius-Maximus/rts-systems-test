@@ -32,7 +32,11 @@ Corolários:
 - **Enums são definidos no núcleo.** A apresentação os consome; nunca os redeclara.
 - **Nenhum tipo da simulação atravessa para GDScript.** Na fronteira com plugins GDScript
   (ex.: Better Terrain), o que passa é `int`/`Vector2I`, convertido num único ponto do
-  lado C# que falha alto se o valor não mapear.
+  lado C# que falha alto se o valor não mapear. Esse ponto **confere o retorno e lança**:
+  essas APIs sinalizam falha por valor de retorno, não por erro — `set_cells` devolve
+  `false` em silêncio e `get_cell` devolve `-1` para célula vazia (verificado em execução,
+  ver `docs/pesquisa/P2-P3-verificacao-tecnica.md` §1.2). Um `bool` ignorado aqui vira
+  mapa parcialmente pintado sem ninguém notar.
 
 `ArchitectureTests` protege isso. Se ele ficar vermelho, a resposta não é relaxar o teste.
 
