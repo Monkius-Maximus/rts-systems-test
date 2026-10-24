@@ -59,13 +59,19 @@ dotnet build
 
 - `src/Lgp.Core/` — simulação, C# puro.
 - `tests/Lgp.Core.Tests/` — suíte headless.
+- `docs/design/` — **vault de design: a fonte de verdade.** Comece pelo `README.md` de lá, que
+  diz a ordem de leitura e o peso de cada arquivo. Canônicos: doc 00 (escopo), 10 (bens, ladder,
+  economia), 20 (combate), 30 (arquitetura), 40 (facções e gerador).
 - `docs/recon/` — relatórios de reconhecimento por frente (auditoria antes de codar).
 - `docs/pesquisa/` — verificações de API/lib contra a documentação oficial.
+- `docs/sprint/` — backlog corrente.
 
-**Docs de design (vault): ainda fora do repositório.** Doc 00/10/20/30,
-`delta-decisoes-sessao.md`, `nacoes-e-geracao-procedural.md`. Enquanto não entrarem, as
-frentes que dependem de dado canônico (bens, tiers, roster) ficam bloqueadas — não invente
-o conteúdo delas.
+Dado canônico (os 10 bens, os tiers, a topologia do pool) está no doc 10. **Não invente o
+conteúdo dele** — se faltar algo, é pendência registrada na tabela de decisões em aberto do doc
+correspondente, não lacuna a preencher por conta.
+
+O que ainda **não** está decidido e bloqueia código: tier do conceito militar, roster de
+unidades, entidade Comandante e modelo de movimento (doc 20 §9 #3, #7, #8).
 
 ## Regra de API
 
