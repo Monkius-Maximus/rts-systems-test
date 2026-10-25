@@ -20,9 +20,9 @@ documentação deste sprint).
 | WS-0 passo 5 — `DeterministicRandom` (PCG32 + testes) | ✅ feito |
 | Docs de design no repo | ✅ feito — `docs/design/` (S1-01) |
 | Consolidação nos docs canônicos | ✅ feito — delta S1-02 aplicado |
-| WS-0 passo 4 — identidade e enums | 🔲 **desbloqueado, próximo** |
-| WS-0 passo 6 — pool de recursos tier-aware (objeto-prova) | 🔲 desbloqueado (depende do passo 4) |
-| WS-0 passo 7 — projeto Godot + fio de ligação | 🔲 não iniciado |
+| WS-0 passo 4 — identidade e enums | ✅ feito (S1-03) |
+| WS-0 passo 6 — pool de recursos tier-aware (objeto-prova) | ✅ feito (S1-04) |
+| WS-0 passo 7 — projeto Godot + fio de ligação | 🔲 **próximo** — fecha o WS-0 |
 | `game/` — projeto Godot | ❌ não existe |
 
 **Leitura do estado:** o bloqueio documental que travou o sprint por seis semanas foi removido.
@@ -53,7 +53,10 @@ correm em paralelo porque não dependem de código existir (mapa §2).
 
 ### Trilha B — Código (Claude Code, recon→implementação)
 
-#### S1-03 · WS-0 passo 4 — identidade de domínio e enums 🔴 **próximo**
+#### S1-03 · WS-0 passo 4 — identidade de domínio e enums ✅ **FEITO**
+- **Entregue:** `GoodId`, `GoodRole`, `GoodCatalog`, `ProductionTier`, `WorkforceType`, mais
+  `EnumConventionTests`. Decisões em `docs/recon/S1-03-S1-04-recon.md` §7. Identidade de PM foi
+  para o WS-1 (doc 10 §7 #10); o conversor de fronteira, para o WS-2.
 - **Tipo:** [Código] · **Depende de:** nada (desbloqueado) · **Bloqueia:** S1-04
 - **Escopo:** fixar, na camada de simulação e só nela, os tipos canônicos derivados do doc 10 §3.1:
   `GoodId` (os 10 bens travados), `WorkforceType` (Trabalhador/Especialista/Soldado),
@@ -65,7 +68,8 @@ correm em paralelo porque não dependem de código existir (mapa §2).
   alto em valor não mapeável; `dotnet test` verde.
 - **Estimativa:** 1 sessão.
 
-#### S1-04 · WS-0 passo 6 — objeto-prova: pool global tier-aware
+#### S1-04 · WS-0 passo 6 — objeto-prova: pool global tier-aware ✅ **FEITO**
+- **Entregue:** `StockKey` e `GoodsPool`, com os finais carregando tier (opção A do recon).
 - **Tipo:** [Código] · **Depende de:** S1-03 · **Bloqueia:** WS-1 inteiro
 - **Escopo:** baldes por `(bem, tier)`; crédito/débito; **débito sem saldo lança** (sem clamp —
   clamp silencioso é fallback disfarçado). Bens sem ladder ocupam um único balde; aço e pólvora
