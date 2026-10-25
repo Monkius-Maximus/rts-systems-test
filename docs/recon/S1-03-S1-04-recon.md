@@ -4,6 +4,11 @@
 **Rodada:** reconhecimento. **Nenhum código de produção foi escrito.**
 **Data:** 2026-10-25 · **Branch:** `recon/s1-03-s1-04` (sobre `docs/vault-de-design`, PR #2)
 
+> **Status (2026-10-25, pós-aprovação):** as cinco decisões da §7 foram tomadas conforme as
+> recomendações — opção **A** para o tier dos finais; nomes da §2.2 aprovados; conversor de
+> fronteira adiado para o WS-2; identidade de PM levada ao WS-1; mensagens de exceção em inglês.
+> A opção A foi dobrada no doc 10 §4-A; as pendências novas viraram doc 10 §7 #9 e #10.
+
 Material canônico desta frente: doc 10 (§3.1 bens, §3.4 ladder, §4-A topologia) e doc 30 (§9
 resolução pura-C#, §9.2 determinismo). Relatório anterior: `WS-0-recon.md` — passos 1, 2, 3 e 5
 já executados; não refeitos aqui.

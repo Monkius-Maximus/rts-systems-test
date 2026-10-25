@@ -56,7 +56,7 @@ LGP valida.
 | Conceito (LGE / UE5)              | Equivalente (LGP)                                  | Nota |
 |-----------------------------------|----------------------------------------------------|------|
 | `UDataAsset` (arquitetura data-driven) | **Arquivo de dados → POCO do núcleo**         | **Não** é `Resource`. `Resource` é asset do Godot (textura, cena, tileset) e vive só na apresentação. Bens, métodos de produção e definições de facção são lidos de arquivo de dados para objetos C# puros. Ver §9. |
-| `FName` (identificador interno)   | **Tipo de identidade próprio do núcleo** (enum ou id tipado em C# puro) | **Não** é `StringName`, que é tipo do Godot. A definição canônica vive na simulação e é consumida pela apresentação. |
+| `FName` (identificador interno)   | **`enum` do núcleo** | **Não** é `StringName`, que é tipo do Godot. *Identidade* é enum (conjunto fechado, checado em compilação); *parâmetro* é arquivo de dados. Valores explícitos a partir de 1, `default` indefinido, `switch` exaustivo sem descarte. Razões em `docs/recon/S1-03-S1-04-recon.md` §1. |
 | `USocialHierarchyDefinition` (DataAsset trocável) | Definição em arquivo de dados, hidratada em POCO | A hierarquia social (comprimida para 3 workforce) segue o mesmo caminho: um só. |
 | Módulo `StrategosCore`            | `src/Lgp.Core` — assembly de simulação em C# puro  | Sem `using Godot;`. Garantido por `ArchitectureTests`. |
 | Módulo `StrategosUI`              | `game/` — cena raiz + nodes de apresentação        | Lê a simulação; não a contém. |

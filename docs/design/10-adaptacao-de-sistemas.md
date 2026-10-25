@@ -171,9 +171,16 @@ contrato que o WS-1 implementa.
 **Bens acumulam num pool único por facção.** Não há transporte a microgerenciar, não há estoque
 por província, não há rota a proteger. O que é local não é o bem — é a **capacidade de produção**.
 
-- O pool é **tier-aware** para os bens laddered: aço T1 e aço T3 são baldes distintos, nunca se
-  misturam, e o interlock lê o tier de onde o bem saiu.
-- Bens sem ladder ocupam um balde único.
+- **Dois conceitos distintos, que esta seção não confunde:**
+  - *Ter ladder* — subir de degrau por tecnologia. Só os **intermediários** (aço, pólvora), §3.4.
+  - *Carregar tier no pool* — o tier de origem viaja com o bem. **Intermediários e finais
+    militares.** Só os **brutos** ocupam um balde único.
+- Aço T1 e aço T3 são baldes distintos e nunca se misturam; o mesmo vale para um fuzil feito com
+  aço T1 e outro feito com aço T3. O interlock lê o tier de onde o bem saiu.
+- *Por que os finais carregam tier, se não têm ladder:* eles **herdam** o tier dos insumos (§3.4).
+  Num balde único, um fuzil Bessemer e um fuzil de bloomery se misturariam, a herança se perderia
+  e a regra de captura (§4-A.3) deixaria de valer para o que já está estocado. *Como* o tier é
+  herdado é pendência (§7 #9); *que* os finais o carregam está travado.
 - Débito sem saldo **lança**. Não há clamp: um clamp silencioso é um fallback disfarçado
   (doc 00 §7).
 
@@ -274,3 +281,5 @@ abstrato:
 | 6 | Quais resoluções existem no Landsraad do protótipo                    | Pendente — WS-5 |
 | 7 | Camada de moeda/upkeep separada dos 10 bens                           | Pendente — **não** entra no protótipo até que algo do loop jogável a exija |
 | 8 | Consumo de workforce (Trabalhador/Especialista consomem comida?)      | Pendente — pool fixo convertível é o comportamento assumido até decisão contrária |
+| 9 | Regra de herança do tier dos finais (ex.: o menor tier entre os insumos com tier?) | Pendente — **bloqueia o WS-1** (produção de finais). *Que* os finais carregam tier está travado em §4-A; *como* ele é calculado, não |
+| 10 | Identidade dos métodos de produção: degraus da pólvora; se cada final tem um PM ou vários; se um sítio de extração "roda um PM" | Pendente — **bloqueia o WS-1** (tabela de PMs). O aço está fechado (§3.4) |
