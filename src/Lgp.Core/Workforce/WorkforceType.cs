@@ -10,7 +10,7 @@ namespace Lgp.Core.Workforce;
 /// </remarks>
 public enum WorkforceType
 {
-    /// <summary>Mão de obra genérica. Guarnece a extração e os degraus baixos.</summary>
+    /// <summary>Mão de obra genérica. Opera a extração e os degraus baixos.</summary>
     Worker = 1,
 
     /// <summary>Opera os degraus altos. É o gargalo literal da assimetria de produção.</summary>

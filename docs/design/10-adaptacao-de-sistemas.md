@@ -193,7 +193,7 @@ assimetria de produção em outro lugar. Ver `principios-de-producao.md` §5: es
 ### 4-A.1 Sítios de extração
 
 - Todo bem bruto (minério, carvão, madeira, salitre, cobre) sai de um **depósito** no território.
-- O depósito é **dormente** até ser guarnecido por Trabalhadores. Guarnecido, produz.
+- O depósito é **dormente** até receber Trabalhadores. Com Trabalhadores alocados, produz.
 - A extração é **binária: não tem ladder.** Toda a progressão de tier vive no processamento.
   (Uma ladder na extração multiplicaria combinações sem acrescentar decisão — ver
   `principios-de-producao.md` §5.)
@@ -209,7 +209,7 @@ assimetria de produção em outro lugar. Ver `principios-de-producao.md` §5: es
 
 Capturar uma província **transfere os edifícios com o tier do inimigo** — você leva a fábrica
 Bessemer dele. Mas **operá-la no tier exige a *sua* workforce**: sem Especialistas suficientes, o
-edifício fica **subguarnecido e o output é reduzido**, não zerado.
+edifício opera com **equipe incompleta e o output é reduzido**, não zerado.
 
 É o ponto onde combate, economia e território se amarram num nó só: tomar território do vizinho
 mais avançado é um atalho tecnológico real, e ainda assim não é de graça.
