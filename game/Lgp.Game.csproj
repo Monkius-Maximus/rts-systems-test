@@ -1,0 +1,23 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  <!--
+    O bloco acima é a saída exata do gerador do editor 4.7.2
+    (GodotTools.ProjectEditor/ProjectGenerator.cs @ 4.7.2-stable). Não editar à mão: é o
+    que o próprio editor escreveria, e mantê-lo idêntico evita que o editor o "atualize".
+
+    A seta de dependência vai do jogo para o núcleo, nunca o contrário: Lgp.Core não
+    referencia o Godot, e ArchitectureTests garante isso.
+
+    Este projeto PRECISA estar listado no Lgp.sln da raiz (project.godot aponta
+    dotnet/project/solution_directory=".."). Se o editor não achar uma solution que o
+    liste, ele regenera este arquivo do zero e apaga o ProjectReference abaixo. Ver
+    docs/recon/S1-05-recon.md §2.1.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="../src/Lgp.Core/Lgp.Core.csproj" />
+  </ItemGroup>
+</Project>

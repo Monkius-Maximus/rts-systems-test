@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A48C077C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lgp.Core.Tests", "tests\Lgp.Core.Tests\Lgp.Core.Tests.csproj", "{92ACAB18-C912-49F3-9C98-3C4AF26395B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lgp.Game", "game\Lgp.Game.csproj", "{64998DFA-DAC9-4559-9233-67C23B041EFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{92ACAB18-C912-49F3-9C98-3C4AF26395B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92ACAB18-C912-49F3-9C98-3C4AF26395B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92ACAB18-C912-49F3-9C98-3C4AF26395B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64998DFA-DAC9-4559-9233-67C23B041EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64998DFA-DAC9-4559-9233-67C23B041EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64998DFA-DAC9-4559-9233-67C23B041EFC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{64998DFA-DAC9-4559-9233-67C23B041EFC}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7F8E992C-5037-4656-8ED1-47B0BAE218A3} = {A8509E95-9B33-48E0-8658-2406DC4759F3}

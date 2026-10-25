@@ -22,7 +22,7 @@ documentação deste sprint).
 | Consolidação nos docs canônicos | ✅ feito — delta S1-02 aplicado |
 | WS-0 passo 4 — identidade e enums | ✅ feito (S1-03) |
 | WS-0 passo 6 — pool de recursos tier-aware (objeto-prova) | ✅ feito (S1-04) |
-| WS-0 passo 7 — projeto Godot + fio de ligação | 🔲 **próximo** — fecha o WS-0 |
+| WS-0 passo 7 — projeto Godot + fio de ligação | ✅ feito (S1-05) — **WS-0 fechado** |
 | `game/` — projeto Godot | ❌ não existe |
 
 **Leitura do estado:** o bloqueio documental que travou o sprint por seis semanas foi removido.
@@ -78,7 +78,9 @@ correm em paralelo porque não dependem de código existir (mapa §2).
   iteração em ordem determinada (doc 30 §9.2, regra 2).
 - **Estimativa:** 1 sessão.
 
-#### S1-05 · WS-0 passo 7 — projeto Godot 4.7.2 e o fio de ligação
+#### S1-05 · WS-0 passo 7 — projeto Godot 4.7.2 e o fio de ligação ✅ **FEITO**
+- **Entregue:** `game/` (csproj do gerador 4.7.2, `project.godot` e cena serializados pela engine,
+  renderer Compatibility) e o job `smoke` da CI. Decisões e riscos em `docs/recon/S1-05-recon.md`.
 - **Tipo:** [Pesquisa curta]→[Código] · **Depende de:** S1-04 · **Fecha o WS-0**
 - **Escopo:** `game/` com `project.godot` **gerado pelo editor 4.7.2** (nunca escrito à mão),
   `.csproj` do jogo com `ProjectReference` para `Lgp.Core`, e **um** smoke: cena que lê o pool e
@@ -154,7 +156,7 @@ UI, naval. Nada disso encurta o caminho até a primeira partida jogável feia.
 - [ ] `dotnet test` verde, sem Godot instalado, em todos os commits da branch principal.
 - [ ] `ArchitectureTests` intacto (o núcleo continua sem referência ao Godot).
 - [x] Os docs de design estão no repo e o `CLAUDE.md` não cita bloqueio.
-- [ ] WS-0 marcado como **fechado** no `mapa-de-execucao.md §3` — os 7 passos executados.
+- [x] WS-0 marcado como **fechado** no `mapa-de-execucao.md §3` — os 7 passos executados.
 - [x] Doc 10 §7 e doc 30 §10 sem pendência que o WS-1 precise consultar.
 - [ ] Cada sessão de código entregou um commit por passo, em PT-BR, com o recon aprovado antes.
 

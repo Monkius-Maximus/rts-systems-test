@@ -76,7 +76,11 @@ chats próprios durante as Fases A–B, já que não dependem de código existir
 
 ## 3. Frentes de trabalho (cards)
 
-### WS-0 — Núcleo de simulação (fundação) · [Pesquisa]→[Código]
+### WS-0 — Núcleo de simulação (fundação) · [Pesquisa]→[Código] · ✅ **FECHADO** (2026-10-25)
+- **Entregue:** solução e harness headless; `ArchitectureTests`; `DeterministicRandom`; identidade do
+  domínio (`GoodId`, `GoodRole`, `GoodCatalog`, `ProductionTier`, `WorkforceType`); o objeto-prova
+  `GoodsPool` tier-aware; o projeto Godot em `game/` com um smoke que roda headless na CI e prova o
+  fio de ligação em runtime. Relatórios em `docs/recon/` (WS-0, S1-03/S1-04, S1-05).
 - **Escopo:** arquitetura de duas camadas (sim C# puro / apresentação nodes); harness de teste
   headless; resolução da tensão `Resource`/`StringName`; primeiro objeto-prova (o pool de
   recursos, que não tem dependência de node).
