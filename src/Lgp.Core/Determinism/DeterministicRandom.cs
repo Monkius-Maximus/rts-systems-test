@@ -99,7 +99,7 @@ public sealed class DeterministicRandom
         {
             throw new ArgumentOutOfRangeException(
                 nameof(exclusiveBound),
-                "O limite superior exclusivo precisa ser maior que zero.");
+                "The exclusive upper bound must be greater than zero.");
         }
 
         // Descarta a faixa inicial que não cabe num múltiplo exato do limite; o que
@@ -126,7 +126,7 @@ public sealed class DeterministicRandom
         {
             throw new ArgumentOutOfRangeException(
                 nameof(maxExclusive),
-                $"O intervalo [{minInclusive}, {maxExclusive}) é vazio.");
+                $"The range [{minInclusive}, {maxExclusive}) is empty.");
         }
 
         uint range = (uint)((long)maxExclusive - minInclusive);
