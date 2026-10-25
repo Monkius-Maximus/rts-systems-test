@@ -89,7 +89,7 @@ Nada disto veio dos seus docs — foram propostas que você confirmou:
 - Mapa terreno→bruto (montanha=ferro, colina=carvão, pântano=salitre etc.).
 - Sítio de extração binário guarnecido por Trabalhador; edifícios em slots; **captura transfere
   o tier do inimigo mas exige sua workforce**.
-- Pool **tier-aware** (aço T1 e T3 como baldes distintos).
+- Pool **tier-aware** (aço T1 e T3 como buckets distintos).
 - Invariantes de escassez; fraqueza de facção como geografia.
 - A distinção "determinístico = mesma fórmula ≠ bit-exact".
 - O teste "muda a forma do sistema ou é só um botão?".

@@ -54,11 +54,11 @@ public static class GoodCatalog
 
     /// <summary>
     /// Se o bem guarda, no pool, o tier em que foi produzido. Intermediários e finais
-    /// militares; só os brutos ficam em balde único (doc 10 §4-A).
+    /// militares; só os brutos ficam em bucket único (doc 10 §4-A).
     /// </summary>
     /// <remarks>
     /// Não é o mesmo que <see cref="HasLadder"/>: os finais não têm ladder, mas herdam o tier
-    /// dos insumos, e num balde único essa herança se perderia na mistura.
+    /// dos insumos, e num bucket único essa herança se perderia na mistura.
     /// </remarks>
     public static bool CarriesTier(GoodId good) => RoleOf(good) switch
     {

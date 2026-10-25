@@ -195,7 +195,7 @@ documentação e comentários em PT-BR.
 - *Aceite:* sequência reproduzível e fixada em teste.
 
 **Passo 6 — Objeto-prova: o pool de recursos global tier-aware**
-- Baldes por (bem, tier); operações de crédito/débito; **falha alta** em débito sem saldo
+- Buckets por (bem, tier); operações de crédito/débito; **falha alta** em débito sem saldo
   (fail fast, sem clamp silencioso — clamp é fallback disfarçado).
 - Testes cobrindo: separação por tier, débito inválido, conservação.
 - **BLOQUEADO por doc 10** quanto ao conjunto de bens e ao número de tiers.

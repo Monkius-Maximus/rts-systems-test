@@ -174,11 +174,11 @@ por província, não há rota a proteger. O que é local não é o bem — é a 
 - **Dois conceitos distintos, que esta seção não confunde:**
   - *Ter ladder* — subir de degrau por tecnologia. Só os **intermediários** (aço, pólvora), §3.4.
   - *Carregar tier no pool* — o tier de origem viaja com o bem. **Intermediários e finais
-    militares.** Só os **brutos** ocupam um balde único.
-- Aço T1 e aço T3 são baldes distintos e nunca se misturam; o mesmo vale para um fuzil feito com
+    militares.** Só os **brutos** ocupam um bucket único.
+- Aço T1 e aço T3 são buckets distintos e nunca se misturam; o mesmo vale para um fuzil feito com
   aço T1 e outro feito com aço T3. O interlock lê o tier de onde o bem saiu.
 - *Por que os finais carregam tier, se não têm ladder:* eles **herdam** o tier dos insumos (§3.4).
-  Num balde único, um fuzil Bessemer e um fuzil de bloomery se misturariam, a herança se perderia
+  Num bucket único, um fuzil Bessemer e um fuzil de bloomery se misturariam, a herança se perderia
   e a regra de captura (§4-A.3) deixaria de valer para o que já está estocado. *Como* o tier é
   herdado é pendência (§7 #9); *que* os finais o carregam está travado.
 - Débito sem saldo **lança**. Não há clamp: um clamp silencioso é um fallback disfarçado

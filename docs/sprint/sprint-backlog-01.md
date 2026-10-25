@@ -71,8 +71,8 @@ correm em paralelo porque não dependem de código existir (mapa §2).
 #### S1-04 · WS-0 passo 6 — objeto-prova: pool global tier-aware ✅ **FEITO**
 - **Entregue:** `StockKey` e `GoodsPool`, com os finais carregando tier (opção A do recon).
 - **Tipo:** [Código] · **Depende de:** S1-03 · **Bloqueia:** WS-1 inteiro
-- **Escopo:** baldes por `(bem, tier)`; crédito/débito; **débito sem saldo lança** (sem clamp —
-  clamp silencioso é fallback disfarçado). Bens sem ladder ocupam um único balde; aço e pólvora
+- **Escopo:** buckets por `(bem, tier)`; crédito/débito; **débito sem saldo lança** (sem clamp —
+  clamp silencioso é fallback disfarçado). Bens sem ladder ocupam um único bucket; aço e pólvora
   ocupam um por tier. Contrato em doc 10 §4-A.
 - **Aceite:** testes de separação por tier, débito inválido (lança), conservação total, e
   iteração em ordem determinada (doc 30 §9.2, regra 2).

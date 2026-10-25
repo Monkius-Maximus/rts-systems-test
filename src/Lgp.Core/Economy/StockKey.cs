@@ -4,7 +4,7 @@ using Lgp.Core.Production;
 namespace Lgp.Core.Economy;
 
 /// <summary>
-/// Endereço de um balde do <see cref="GoodsPool"/>: um bem e, se ele carrega tier, o tier.
+/// Endereço de um bucket do <see cref="GoodsPool"/>: um bem e, se ele carrega tier, o tier.
 /// </summary>
 /// <remarks>
 /// <para>
@@ -25,11 +25,11 @@ public readonly record struct StockKey
         Tier = tier;
     }
 
-    /// <summary>O bem guardado neste balde.</summary>
+    /// <summary>O bem guardado neste bucket.</summary>
     public GoodId Good { get; }
 
     /// <summary>
-    /// O tier em que o bem foi produzido, ou <c>null</c> para um bruto, que ocupa balde único.
+    /// O tier em que o bem foi produzido, ou <c>null</c> para um bruto, que ocupa bucket único.
     /// </summary>
     public ProductionTier? Tier { get; }
 

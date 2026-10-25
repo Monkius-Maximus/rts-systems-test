@@ -36,7 +36,7 @@ public sealed class GoodsPoolTests
     }
 
     /// <summary>
-    /// Aço T1 e aço T3 são baldes distintos e nunca se misturam (doc 10 §4-A).
+    /// Aço T1 e aço T3 são buckets distintos e nunca se misturam (doc 10 §4-A).
     /// </summary>
     [Fact]
     public void Tiers_AreSeparateBuckets_ForIntermediates()
@@ -51,7 +51,7 @@ public sealed class GoodsPoolTests
 
     /// <summary>
     /// A opção A do recon: os finais carregam tier mesmo sem ter ladder. Um fuzil feito com
-    /// aço T1 e um feito com aço T3 não podem cair no mesmo balde.
+    /// aço T1 e um feito com aço T3 não podem cair no mesmo bucket.
     /// </summary>
     [Fact]
     public void Tiers_AreSeparateBuckets_ForMilitaryFinals()
@@ -192,7 +192,7 @@ public sealed class GoodsPoolTests
     /// <summary>
     /// Conservação, numa sequência longa de operações sorteada pelo próprio gerador
     /// determinístico — reproduzível por seed. Um modelo independente (um array simples)
-    /// acompanha cada operação; ao fim, pool e modelo precisam concordar balde a balde, e o
+    /// acompanha cada operação; ao fim, pool e modelo precisam concordar bucket a bucket, e o
     /// total precisa ser o creditado menos o debitado.
     /// </summary>
     [Fact]

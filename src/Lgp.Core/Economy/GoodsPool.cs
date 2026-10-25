@@ -35,7 +35,7 @@ namespace Lgp.Core.Economy;
 /// <para>
 /// Determinismo: os saldos vivem num array na ordem canônica de <see cref="StockKey.All"/>, e
 /// <see cref="Snapshot"/> percorre só esse array. O dicionário de índices serve apenas para
-/// <em>localizar</em> um balde e nunca é iterado — a ordem dele não alcança nenhum cálculo.
+/// <em>localizar</em> um bucket e nunca é iterado — a ordem dele não alcança nenhum cálculo.
 /// </para>
 /// </remarks>
 public sealed class GoodsPool
@@ -46,11 +46,11 @@ public sealed class GoodsPool
 
     private readonly long[] _balances = new long[StockKey.All.Count];
 
-    /// <summary>Saldo atual do balde. Um balde que nunca recebeu nada tem saldo zero.</summary>
+    /// <summary>Saldo atual do bucket. Um bucket que nunca recebeu nada tem saldo zero.</summary>
     /// <exception cref="ArgumentException">Se a chave não foi construída por <see cref="StockKey"/>.</exception>
     public long Balance(StockKey key) => _balances[IndexOf(key)];
 
-    /// <summary>Acrescenta ao balde.</summary>
+    /// <summary>Acrescenta ao bucket.</summary>
     /// <exception cref="ArgumentOutOfRangeException">Se a quantidade não é positiva.</exception>
     /// <exception cref="ArgumentException">Se a chave não foi construída por <see cref="StockKey"/>.</exception>
     /// <exception cref="OverflowException">Se o saldo resultante não cabe num <c>long</c>.</exception>
@@ -63,7 +63,7 @@ public sealed class GoodsPool
         _balances[index] = checked(_balances[index] + amount);
     }
 
-    /// <summary>Retira do balde.</summary>
+    /// <summary>Retira do bucket.</summary>
     /// <exception cref="ArgumentOutOfRangeException">Se a quantidade não é positiva.</exception>
     /// <exception cref="ArgumentException">Se a chave não foi construída por <see cref="StockKey"/>.</exception>
     /// <exception cref="InvalidOperationException">Se o saldo é menor que a quantidade.</exception>

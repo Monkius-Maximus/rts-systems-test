@@ -35,7 +35,7 @@ Travado desde o último delta:
 - **Topologia da economia → pool global + produção espacial (dobrar em doc 10 / doc 30).** Bens
   acumulam num pool único por facção; o que é local é a *capacidade de produção* (extração só
   onde há bruto; indústria ocupa slot de província). Sem transporte a microgerenciar. Pool é
-  **tier-aware** para bens laddered (aço T1 e aço T3 são baldes distintos).
+  **tier-aware** para bens laddered (aço T1 e aço T3 são buckets distintos).
 - **Sítios de produção → doc 10 / doc 30.** Extração: depósito dormente até um sítio guarnecido
   por Trabalhadores (binário, sem ladder). Processamento: edifícios em **slots de província**,
   um PM por edifício; tier baixo = Trabalhador, tier alto = Especialista (gargalo espacial).

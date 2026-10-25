@@ -94,11 +94,11 @@ Duas afirmações travadas do doc 10 não podem valer juntas:
 
 - **§3.4:** "Os finais militares **herdam o tier alcançável dos seus insumos**; o interlock converte
   isso em efetividade." E: "Não se faz fuzil Bessemer com aço de bloomery."
-- **§4-A:** "O pool é tier-aware **para os bens laddered**: aço T1 e aço T3 são baldes distintos.
-  **Bens sem ladder ocupam um balde único**." E: "o interlock lê o tier de onde o bem saiu."
+- **§4-A:** "O pool é tier-aware **para os bens laddered**: aço T1 e aço T3 são buckets distintos.
+  **Bens sem ladder ocupam um bucket único**." E: "o interlock lê o tier de onde o bem saiu."
 
-Os finais (armamento, armas de fogo, artilharia) **não têm ladder**. Pela §4-A, ocupam um balde
-único. Mas então um fuzil feito com aço T3 e outro feito com aço T1 caem no mesmo balde, o tier de
+Os finais (armamento, armas de fogo, artilharia) **não têm ladder**. Pela §4-A, ocupam um bucket
+único. Mas então um fuzil feito com aço T3 e outro feito com aço T1 caem no mesmo bucket, o tier de
 origem se perde na mistura, e quando uma unidade consome fuzis do pool **não há como o interlock
 saber de que tier eles eram**. A herança da §3.4 fica sem onde morar.
 
@@ -106,8 +106,8 @@ Isto não é detalhe de implementação: decide a **forma da chave do pool**, qu
 
 | Opção | O que significa | Consequência |
 |---|---|---|
-| **A** (recomendada) | Separar dois conceitos que o doc 10 trata como um: *ter ladder* (aço, pólvora — sobem de degrau por tecnologia) e *carregar tier no pool* (aço, pólvora **e os três finais**). Só os brutos ficam em balde único. | §3.4 e §4-A passam a valer juntas. O interlock lê o tier do final, que lê o tier dos insumos. 20 baldes (5 brutos + 5 × 3 tiers). |
-| B | Finais em balde único; a unidade usa o tier *atual* da facção. | Contradiz "o interlock lê o tier de onde o bem saiu" e **esvazia a regra de captura** (§4-A.3): capturar a fábrica Bessemer do vizinho deixa de importar para o que já está estocado. |
+| **A** (recomendada) | Separar dois conceitos que o doc 10 trata como um: *ter ladder* (aço, pólvora — sobem de degrau por tecnologia) e *carregar tier no pool* (aço, pólvora **e os três finais**). Só os brutos ficam em bucket único. | §3.4 e §4-A passam a valer juntas. O interlock lê o tier do final, que lê o tier dos insumos. 20 buckets (5 brutos + 5 × 3 tiers). |
+| B | Finais em bucket único; a unidade usa o tier *atual* da facção. | Contradiz "o interlock lê o tier de onde o bem saiu" e **esvazia a regra de captura** (§4-A.3): capturar a fábrica Bessemer do vizinho deixa de importar para o que já está estocado. |
 | C | Finais não passam pelo pool: viram unidade direto ao serem produzidos. | Muda o modelo de produção inteiro. Reabre o doc 10, não é um ajuste. |
 
 **Recomendo A.** É a única que não apaga uma regra travada, e o custo é mínimo: o pool não precisa
@@ -267,7 +267,7 @@ de mexer em qualquer coisa. Não é escopo deste passo porque nada aqui produz b
 | Ponto flutuante | Somar `float` em ordens diferentes dá resultados diferentes. | Não existe: o pool é inteiro (`long`). Taxas fracionárias, se aparecerem no WS-1, acumulam fora do pool e só entram nele como inteiro. |
 | Overflow | `long` daria a volta em silêncio — resultado errado, mesmo que reproduzível. | `checked`. **Teste.** |
 | Débito parcial | Ver §4, item 5. | Validar antes de mutar. **Teste.** |
-| Paralelismo | Duas threads creditando o mesmo balde. | Já proibido pela regra 3 do doc 30 §9.2. Fora do escopo do teste. |
+| Paralelismo | Duas threads creditando o mesmo bucket. | Já proibido pela regra 3 do doc 30 §9.2. Fora do escopo do teste. |
 
 ---
 
