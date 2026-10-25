@@ -53,12 +53,18 @@ rodarem a mesma engine sem cheating (WS-7). Quatro regras no núcleo:
 ```bash
 dotnet test     # suíte completa, sem Godot instalado
 dotnet build
+
+# smoke do fio de ligação (exige o Godot 4.7.2 .NET)
+dotnet build game/Lgp.Game.csproj
+godot --headless --path game --import
+godot --headless --path game      # imprime "SMOKE Steel Tier3 = 42"; sai com 1 se divergir
 ```
 
 ## Onde está o quê
 
 - `src/Lgp.Core/` — simulação, C# puro.
 - `tests/Lgp.Core.Tests/` — suíte headless.
+- `game/` — projeto Godot 4.7.2 (apresentação). Referencia o núcleo; nunca o contrário.
 - `docs/design/` — **vault de design: a fonte de verdade.** Comece pelo `README.md` de lá, que
   diz a ordem de leitura e o peso de cada arquivo. Canônicos: doc 00 (escopo), 10 (bens, ladder,
   economia), 20 (combate), 30 (arquitetura), 40 (facções e gerador).
@@ -72,6 +78,17 @@ correspondente, não lacuna a preencher por conta.
 
 O que ainda **não** está decidido e bloqueia código: tier do conceito militar, roster de
 unidades, entidade Comandante e modelo de movimento (doc 20 §9 #3, #7, #8).
+
+## Regras do projeto Godot
+
+Vieram da leitura do código-fonte do editor 4.7.2 (docs/recon/S1-05-recon.md §2):
+
+- **`game/Lgp.Game.csproj` precisa estar no `Lgp.sln`.** Se o editor não achar uma solution que
+  o liste, ele regenera o `.csproj` e apaga o `ProjectReference` para o núcleo.
+- **Nunca criar uma configuração `Tools` no `Lgp.sln`.** A presença dela dispara uma migração
+  automática do editor que renomeia `Release` para `ExportDebug` — e quebra a CI.
+- **Formato do Godot não se escreve à mão.** `project.godot`, `.tscn` e `.uid` saem da engine ou
+  do editor; o formato muda entre versões.
 
 ## Regra de API
 

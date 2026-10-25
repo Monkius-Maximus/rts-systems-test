@@ -4,6 +4,11 @@
 **Rodada:** reconhecimento. **Nenhum código de produção foi escrito no repositório.**
 **Data:** 2026-10-25 · **Branch:** `recon/s1-05` (sobre `ws0/s1-03-s1-04`, PR #4)
 
+> **Status (2026-10-25, pós-aprovação):** as quatro decisões da §6 foram tomadas conforme as
+> recomendações — Compatibility, job de smoke separado, scaffold fora do repositório, `ubuntu-24.04`.
+> Um desvio, por ser estritamente mais forte: o SHA-512 do Godot ficou **fixado no workflow** em vez
+> de baixado junto com o binário. Executado no PR do S1-05; WS-0 fechado.
+
 Escopo do backlog: `game/` com `project.godot` **gerado pelo editor 4.7.2** (nunca à mão), um
 `.csproj` do jogo com `ProjectReference` para `Lgp.Core`, e **um** smoke — uma cena que lê o pool
 e imprime. A CI continua rodando `dotnet test` sem o Godot instalado.
