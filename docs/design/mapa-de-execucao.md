@@ -35,12 +35,12 @@ Travado desde o último delta:
 - **Topologia da economia → pool global + produção espacial (dobrar em doc 10 / doc 30).** Bens
   acumulam num pool único por facção; o que é local é a *capacidade de produção* (extração só
   onde há bruto; indústria ocupa slot de província). Sem transporte a microgerenciar. Pool é
-  **tier-aware** para bens laddered (aço T1 e aço T3 são baldes distintos).
-- **Sítios de produção → doc 10 / doc 30.** Extração: depósito dormente até um sítio guarnecido
-  por Trabalhadores (binário, sem ladder). Processamento: edifícios em **slots de província**,
+  **tier-aware** para bens laddered (aço T1 e aço T3 são buckets distintos).
+- **Sítios de produção → doc 10 / doc 30.** Extração: depósito dormente até receber
+  Trabalhadores (binário, sem ladder). Processamento: edifícios em **slots de província**,
   um PM por edifício; tier baixo = Trabalhador, tier alto = Especialista (gargalo espacial).
   Captura transfere edifícios **com o tier do inimigo**, mas operá-los no tier exige *sua*
-  workforce (subguarnecido = output reduzido).
+  workforce (equipe incompleta = output reduzido).
 - **Escassez → doc 10.** Gerador de mapa impõe invariantes: nenhum começo autossuficiente;
   salitre/cobre raros; coração metalúrgico (ferro+carvão) exige expansão. Fraqueza de facção
   vira geografia (Albion pobre em ferro/carvão; Norden pobre em salitre; Galia com salitre).

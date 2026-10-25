@@ -14,6 +14,24 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+      CS8524 é silenciado de propósito, e só ele.
+
+      Num `switch` sobre enum, o compilador emite dois avisos distintos: CS8509 quando
+      falta um membro NOMEADO, e CS8524 quando falta tratar valores SEM nome — o que
+      qualquer enum pode conter, porque `(GoodId)99` compila. Com os dois ativos, a única
+      forma de compilar seria um braço de descarte `_ => ...`, que é um fallback e
+      destruiria as duas garantias que queremos:
+
+        1. esquecer um membro nomeado continua sendo ERRO de compilação (CS8509,
+           promovido por TreatWarningsAsErrors);
+        2. um valor sem nome que chegue em runtime lança SwitchExpressionException,
+           sem precisar de checagem manual.
+
+      Ver docs/recon/S1-03-S1-04-recon.md §1.1 e §6.
+    -->
+    <NoWarn>$(NoWarn);CS8524</NoWarn>
   </PropertyGroup>
 
 </Project>

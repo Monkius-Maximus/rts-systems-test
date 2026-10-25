@@ -57,8 +57,8 @@ entre versões (o `TileMap` virou `TileMapLayer` entre 4.3 e 4.7).
 - **Vitória:** territorial — limiar de % dos territórios capturáveis; eliminação = caso degenerado
   de 100%. Contagem de territórios, não VP.
 - **Economia:** 10 bens; ladder só em aço e pólvora (T1→T3); finais herdam o tier dos insumos;
-  **pool global tier-aware** (débito sem saldo lança, sem clamp); extração binária guarnecida por
-  Trabalhador; processamento em slots de província com gating Trabalhador→Especialista; captura
+  **pool global tier-aware** (débito sem saldo lança, sem clamp); extração binária operada por
+  Trabalhadores; processamento em slots de província com gating Trabalhador→Especialista; captura
   transfere o tier do inimigo mas exige a sua workforce.
 - **Facções:** Albion (aço T3, pobre em ferro/carvão), Galia (pólvora T3, política), Norden (T1,
   farto e marcial) — doc 40.
