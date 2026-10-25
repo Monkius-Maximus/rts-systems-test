@@ -1,9 +1,17 @@
-# CI do núcleo de simulação.
+# CI do LGP. Dois jobs, com papéis separados de propósito.
 #
-# Repare no que NÃO está aqui: nenhum download do Godot, nenhum editor, nenhum
-# `--headless`. Isso é consequência direta da invariante de arquitetura do WS-0 — o
-# núcleo não referencia a engine, então testá-lo é só `dotnet test`. Se um dia este
-# arquivo precisar instalar o Godot para a suíte rodar, a invariante foi quebrada.
+# `test` — a suíte do núcleo. Repare no que NÃO está aqui: nenhum download do Godot, nenhum
+# editor, nenhum `--headless`. É consequência direta da invariante de arquitetura do WS-0: o
+# núcleo não referencia a engine, então testá-lo é só `dotnet test`. Como game/ está no Lgp.sln,
+# este job também COMPILA a apresentação — mas compilar só precisa do pacote Godot.NET.Sdk do
+# NuGet, não da engine. Se um dia este job precisar instalar o Godot, a invariante foi quebrada.
+#
+# `smoke` — o ÚNICO lugar que instala a engine, e de propósito. Roda o jogo headless e prova o
+# fio de ligação em runtime: a apresentação carrega e usa um tipo do núcleo. Cobre a classe de
+# falha que compila e quebra na execução (docs/pesquisa/P1-P4-verificacao-tecnica.md §2.1).
+#
+# Runner fixado em ubuntu-24.04, não `ubuntu-latest`: upgrade de ambiente é tarefa explícita,
+# pela mesma regra que trava a versão da engine (doc 00 §6).
 name: CI
 
 on:
@@ -13,7 +21,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -22,3 +30,47 @@ jobs:
           dotnet-version: "8.0.x"
 
       - run: dotnet test --configuration Release
+
+  smoke:
+    runs-on: ubuntu-24.04
+    env:
+      # Versão travada no doc 00 §6. O hash foi copiado do SHA512-SUMS.txt oficial da release
+      # 4.7.2-stable e fica fixado aqui, não baixado junto: trocar de versão obriga a trocar o
+      # hash, e um download corrompido ou adulterado falha antes de executar qualquer coisa.
+      GODOT_ZIP: Godot_v4.7.2-stable_mono_linux_x86_64.zip
+      GODOT_URL: https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_mono_linux_x86_64.zip
+      GODOT_SHA512: 1855960b27ee3ef5e66e5e228cced69d55637b24334a7411162687dcd077d8f9f645348cdb8eae984bec8135d49ed855a1e3a16476786b8bce60774fd8402d13
+      GODOT_BIN: godot/Godot_v4.7.2-stable_mono_linux_x86_64/Godot_v4.7.2-stable_mono_linux.x86_64
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Baixar o Godot e conferir o SHA-512
+        run: |
+          curl -fsSL -o "$GODOT_ZIP" "$GODOT_URL"
+          echo "$GODOT_SHA512  $GODOT_ZIP" | sha512sum --check --strict
+          unzip -q "$GODOT_ZIP" -d godot
+
+      # O assembly precisa existir antes de a engine carregar a cena: sem ele, o script C# não
+      # é encontrado (docs/recon/S1-05-recon.md §1.2).
+      - name: Compilar o jogo
+        run: dotnet build game/Lgp.Game.csproj --configuration Debug
+
+      - name: Importar o projeto
+        run: |
+          "$GODOT_BIN" --headless --path game --import
+
+      # Três asserções, da mais forte para a mais fraca: o código de saída (o smoke sai com 1 se
+      # o pool lido não for o creditado), a linha exata esperada, e a ausência de qualquer ERROR.
+      - name: Rodar o smoke
+        run: |
+          set -o pipefail
+          "$GODOT_BIN" --headless --path game 2>&1 | tee smoke.log
+          grep -qx "SMOKE Steel Tier3 = 42" smoke.log
+          if grep -q "ERROR:" smoke.log; then
+            echo "::error::O smoke emitiu ERROR — veja o log acima."
+            exit 1
+          fi
