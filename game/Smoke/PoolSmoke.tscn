@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Smoke/PoolSmoke.cs" id="1_o5kae"]
+
+[node name="PoolSmoke" type="Node" unique_id=1816117684]
+script = ExtResource("1_o5kae")
