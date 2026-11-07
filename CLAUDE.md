@@ -71,6 +71,11 @@ godot --headless --path game      # imprime "SMOKE Steel Tier3 = 42"; sai com 1 
 - `docs/recon/` — relatórios de reconhecimento por frente (auditoria antes de codar).
 - `docs/pesquisa/` — verificações de API/lib contra a documentação oficial.
 - `docs/sprint/` — backlog corrente.
+- `docs/arte/lista-de-assets.md` — o que desenhar, tamanho, nome e pasta de cada asset.
+- `game/assets/<categoria>/` — imagens e sons exportados que o jogo usa. Nome do arquivo =
+  `<categoria>_<enum do núcleo em snake_case>` (`GoodId.IronOre` → `good_iron_ore.png`).
+  Referencie por essa regra; não crie tabela de caminhos. Arte da Steam fica em `marketing/`,
+  fora de `game/`, para não entrar no build.
 
 Dado canônico (os 10 bens, os tiers, a topologia do pool) está no doc 10. **Não invente o
 conteúdo dele** — se faltar algo, é pendência registrada na tabela de decisões em aberto do doc
